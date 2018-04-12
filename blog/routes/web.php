@@ -27,7 +27,7 @@
 //     return "This is user ".$id;
 // });
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PostsController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
@@ -71,6 +71,7 @@ Route::get('/services', 'PagesController@services');
 //     return view('pages/tasks/show',compact('asd'));
 // });
 Route::get('tasks/{asd}','TasksController@show');
+Route::get('post/{id}','PostsController@show');
 Route::get('posts/create','PostsController@create');
 //Route::resource('posts','PostsController');
 Route::get('/posts','PostsController@index');

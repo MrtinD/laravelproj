@@ -14,12 +14,13 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //$posts = Post::all();
         //return view('posts.index')->with('asd', $posts);
         $posts=Post::all();
-        return view('posts.post',compact('posts'));
+        return view('pages.index',compact('posts'));
     }
 
     /**
@@ -80,7 +81,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $singlepost = Post::find($id);
-        return view('posts.show')->with('singlepost',$singlepost);
+        return view('posts.show',compact('singlepost'));//)->with('singlepost',$singlepost);
     }
 
     /**

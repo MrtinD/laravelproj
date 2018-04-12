@@ -10,8 +10,7 @@ class PagesController extends Controller
         //$title="Welcome to the Index Page!";
         //return view('pages.index',compact('title','asd'));
         //return view('pages.index')->with('title',$title);
-        $posts=App\Post::all();
-        return view('pages.index',compact('posts'));
+        return view('pages.index');
     }
 
     public function about(){
