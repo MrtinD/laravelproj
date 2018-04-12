@@ -71,7 +71,7 @@ Route::get('/services', 'PagesController@services');
 //     return view('pages/tasks/show',compact('asd'));
 // });
 Route::get('tasks/{asd}','TasksController@show');
-Route::get('post/{id}','PostsController@show');
+Route::get('show/{id}','PostsController@show');
 Route::get('posts/create','PostsController@create');
 //Route::resource('posts','PostsController');
 Route::get('/posts','PostsController@index');
