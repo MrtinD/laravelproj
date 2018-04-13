@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -22,6 +23,28 @@ class PostsController extends Controller
         $posts=Post::all();
         return view('pages.index',compact('posts'));
     }
+
+
+    /**
+     * 
+     * Function that increments the likes
+     * 
+     */
+    //Checkout  @2
+    public function increment($id) {
+
+        $post = Post::where('id', '=', $id)->first();
+
+        // $posts = DB::table('posts')->where('id',$id)->take(1)->get();
+        $post->votes++;
+        $post->save();
+        // $posts->votes++;
+        // $posts->save();
+        return redirect()->back();
+        //return view('pages.index');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

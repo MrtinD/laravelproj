@@ -27,9 +27,9 @@
 //     return "This is user ".$id;
 // });
 
-Route::get('/', 'PostsController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
+// Route::get('/', 'PostsController@index');
+// Route::get('/about', 'PagesController@about');
+// Route::get('/services', 'PagesController@services');
 
 //Функцията казва като напишеш в url нещо си завършващо на /tasks ми върни от сървъра файла pages/tasks
 
@@ -70,10 +70,26 @@ Route::get('/services', 'PagesController@services');
 //     //dd($asd);
 //     return view('pages/tasks/show',compact('asd'));
 // });
+
+//Login
+
+Route::get('/','LoginController@index');
+Route::get('/register','LoginController@create');
+Route::post('/register/user','LoginController@register');
+
+//Posts
+
+Route::get('/home', 'PostsController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/services', 'PagesController@services');
 Route::get('tasks/{asd}','TasksController@show');
 Route::get('show/{id}','PostsController@show');
 Route::get('posts/create','PostsController@create');
 //Route::resource('posts','PostsController');
-Route::get('/posts','PostsController@index');
+//Route::get('/posts','PostsController@index');
+
 Route::post('/posts','PostsController@store');
+
+//Checkout @2 {id} here is given as parameter at increment($id)
+Route::post('/posts/likes/{id}','PostsController@increment');
 Route::get('/tasks','TasksController@index');

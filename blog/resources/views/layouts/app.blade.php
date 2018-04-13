@@ -11,7 +11,9 @@
 
         <!-- Bootstrap core CSS -->
         <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <!-- Custom styles for this template -->
         <link href="http://v4-alpha.getbootstrap.com/examples/blog/blog.css" rel="stylesheet">
     </head>
