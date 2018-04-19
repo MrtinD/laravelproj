@@ -76,7 +76,7 @@
 Route::get('/','LoginController@index');
 Route::get('/register','LoginController@create');
 Route::post('/register/user','LoginController@register');
-
+Route::get('/login/user','LoginController@logged');
 //Posts
 
 Route::get('/home', 'PostsController@index');
@@ -93,3 +93,4 @@ Route::post('/posts','PostsController@store');
 //Checkout @2 {id} here is given as parameter at increment($id)
 Route::post('/posts/likes/{id}','PostsController@increment');
 Route::get('/tasks','TasksController@index');
+Route::post('/comments/{post}','CommentsController@store');

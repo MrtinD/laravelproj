@@ -15,7 +15,27 @@
             {{-- <input type="hidden" value="{{$post->id}}"> --}}
             <button type="submit" class="btn btn-primary" name="like">Like <i class="fa fa-thumbs-up"></i> </button>
             {{$singlepost->votes}}
-      </form>
+    </form>
+    <hr>
+        @foreach($singlepost->comments as $comment)
+            <li class="list-group-item">{{$comment->body}}</li>
+            <small>{{$comment->created_at->toFormattedDateString()}} </small>
+            <hr>
+        @endforeach
+
+        <div class="card">
+                <div class="card-block">
+                  <form action="/comments/{{$singlepost->id}}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <textarea name="commbody" placeholder="Your comment here."class="form-control"></textarea>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add Comment</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
 </div><!-- /.blog-post -->
 
 @endsection

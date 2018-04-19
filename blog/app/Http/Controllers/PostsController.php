@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Post;
-
+use App\Comments;
 
 
 class PostsController extends Controller
@@ -23,6 +23,7 @@ class PostsController extends Controller
         $posts=Post::all();
         return view('pages.index',compact('posts'));
     }
+
 
 
     /**

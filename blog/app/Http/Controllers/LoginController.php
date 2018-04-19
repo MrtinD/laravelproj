@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Login;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -37,9 +39,23 @@ class LoginController extends Controller
         $user->user_pass=request("pass");
         $user->email=request("email");
         $user->save();
-
         return redirect()->back();
     }
+
+    /**
+     * Checking if you arelogged in
+     * 
+     */
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.

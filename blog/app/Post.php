@@ -20,4 +20,15 @@ class Post extends Model
     * fields in the database we dont want to touch when querying
     * protected $guarded = ['user_id','user_pwd'];
     */
+    public function comments(){
+        //second parameter of hasMany() in this case asdf is the name of the row in the table in the database
+        return $this->hasMany(Comments::class,'asdf');
+    }
+
+    public function addComment($commentbody){
+        Comments::create([
+            'body'=>$commentbody,
+            'asdf'=>$this->id,
+        ]);
+    }
 }
